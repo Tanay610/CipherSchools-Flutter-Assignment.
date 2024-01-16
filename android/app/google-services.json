@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326311576077",
+    "project_id": "expensetrack-c170d",
+    "storage_bucket": "expensetrack-c170d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326311576077:android:c274e761726ec03c288b44",
+        "android_client_info": {
+          "package_name": "com.example.cipher_school_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpWGr1o0Z21zHDkg6AS3yktg0gxiBVWpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

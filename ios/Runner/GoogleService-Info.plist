@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBXfrDxytBOjstuJDmBx8mTxKhuMVz6kCo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>326311576077</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cipherSchoolApp</string>
+	<key>PROJECT_ID</key>
+	<string>expensetrack-c170d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>expensetrack-c170d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:326311576077:ios:8bce6403cb03c878288b44</string>
+</dict>
+</plist>
