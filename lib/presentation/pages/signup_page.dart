@@ -308,9 +308,9 @@ class _SignupPageState extends State<SignupPage> {
               ),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return HomeBottomBar();
-                  }));
+                  // Navigator.push(context, MaterialPageRoute(builder: (context){
+                  //   return HomeBottomBar();
+                  // }));
                 },
                 child: Text("Login",
                 style: TextStyle(

@@ -13,13 +13,13 @@ class AddExpensePage extends StatefulWidget {
 }
 
 class _AddExpensePageState extends State<AddExpensePage> {
+  String? selectedWallet;
+  String? selectedCategory;
+  final TextEditingController descriptController = TextEditingController();
   String displayedText = '0';
 
   @override
   Widget build(BuildContext context) {
-    String? selectedWallet;
-    String? selectedCategory;
-    final TextEditingController descriptController = TextEditingController();
     return Scaffold(
       backgroundColor: Color(0xff0077FF),
       appBar: AppBar(
@@ -42,9 +42,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
         ),
       ),
       body: SingleChildScrollView(
-          child: BlocBuilder<ExpenseCubit, List<ExpenseModel>>(
-            builder: (context, state) {
-              return SizedBox(
+          child:SizedBox(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
@@ -290,8 +288,6 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                           selectedCategory.toString(),
                                           selectedWallet.toString(),
                                           );
-                                          //context.read<ExpenseCubit>().updateSelectedCategory(selectedCategory.toString());
-                                       //context.read<CategoryCubit>().setCategory(selectedCategory.toString());
 
                                       context.read<TotalCubit>().addExpense(
                                           double.parse(displayedText));
@@ -314,9 +310,8 @@ class _AddExpensePageState extends State<AddExpensePage> {
                     )
                   ],
                 ),
-              );
-            },
-          ),
+              ),
+            
         ),
       
       extendBodyBehindAppBar: true,

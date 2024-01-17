@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context)=>ExpenseCubit()),
         BlocProvider(create: (context)=>TotalCubit()),
         BlocProvider(create: (context)=>CategoryCubit()),
-
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
