@@ -12,13 +12,14 @@ class IncomePage extends StatefulWidget {
 }
 
 class _IncomePageState extends State<IncomePage> {
-  String displayedText = '0';
-  @override
-  Widget build(BuildContext context) {
+  
     String? selectedCategory;
     String? selectedWallet;
     final bool isZero = true;
     final TextEditingController descriptController = TextEditingController();
+  String displayedText = '0';
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff7B61FF),
       appBar: AppBar(

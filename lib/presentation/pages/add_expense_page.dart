@@ -266,15 +266,17 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                   onPressed: () {
                                       // Process data.
                                       final Map<String, Color> colors = {
-                                        'Food': Colors.red,
-                                        'Subscriptions': Colors.green,
-                                        'Shopping': Colors.blue,
-                                        'Travel': Colors.yellow,
+                                        'Food': const Color(0xffFDD5D7),
+                                        'Subscriptions': Color(0xffEEE5FF),
+                                        'Shopping': Color(0xffFCEED4),
+                                        'Travel': Color(0xffF1F1FA),
                                       };
+
+                                      
 
                                       final Map<String, String> images = {
                                         'Food': "assets/icons8-ice-cream-cone-64.png",
-                                        'Subscriptions': "assets/recurring-bill.png",
+                                      'Subscriptions': "assets/recurring-bill.png",
                                         'Shopping': "assets/shopping-bag.png",
                                         'Travel': "assets/car.png",
                                       };
