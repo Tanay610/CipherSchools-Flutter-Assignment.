@@ -1,3 +1,4 @@
+import 'package:cipher_school_app/cubit/category_cubit.dart';
 import 'package:cipher_school_app/cubit/expense_cubit.dart';
 import 'package:cipher_school_app/cubit/total_cubit.dart';
 import 'package:cipher_school_app/models/expense_model.dart';
@@ -91,7 +92,7 @@ class _ExpensePageState extends State<ExpensePage> {
                       child: Text("Account Balance"),
                     ),
                     Text(
-                      '₹ ${amount.totalIncome-amount.totalExpense}',
+                      '₹ ${amount.totalIncome - amount.totalExpense}',
                       style:
                           TextStyle(fontWeight: FontWeight.w600, fontSize: 40),
                     ),
@@ -288,18 +289,19 @@ class _ExpensePageState extends State<ExpensePage> {
                             },
                             child: ListTile(
                               tileColor: Color(0xffFCFCFC),
-                              leading: Container(
-                                  height: 60,
-                                  width: 60,
-                                  decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(16)),
-                                      color: Colors.red),
-                                  child: Icon(
-                                    Icons.restaurant,
-                                    size: 40,
-                                    color: Colors.white,
-                                  )),
+                              leading: BlocBuilder<CategoryCubit,List<Map<String, dynamic>>> (
+                                builder: (context, state) {
+                                  final listcate = state[index];
+                                  return Container(
+                                      height: 60,
+                                      width: 60,
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(16)),
+                                          color: listcate["color"]),
+                                      child: Image.asset(listcate["imagePath"]));
+                                },
+                              ),
                               title: Text(
                                 list.category,
                                 style: TextStyle(

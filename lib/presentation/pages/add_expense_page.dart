@@ -1,4 +1,5 @@
 
+import 'package:cipher_school_app/cubit/category_cubit.dart';
 import 'package:cipher_school_app/cubit/expense_cubit.dart';
 import 'package:cipher_school_app/cubit/total_cubit.dart';
 import 'package:cipher_school_app/models/expense_model.dart';
@@ -264,24 +265,20 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                               Radius.circular(16)))),
                                   onPressed: () {
                                       // Process data.
-                                      // final Map<String, Color> colors = {
-                                      //   'Food': Colors.red,
-                                      //   'Subscriptions': Colors.green,
-                                      //   'Shopping': Colors.blue,
-                                      //   'Travel': Colors.yellow,
-                                      // };
+                                      final Map<String, Color> colors = {
+                                        'Food': Colors.red,
+                                        'Subscriptions': Colors.green,
+                                        'Shopping': Colors.blue,
+                                        'Travel': Colors.yellow,
+                                      };
 
-                                      // final List images = [
-                                        
-                                      //       Icons.abc,
-                                        
-                                      //       Icons.ac_unit_sharp,
-                                        
-                                      //       Icons.kebab_dining,
-                                       
-                                      //       Icons.smoke_free,
-                                      // ];
-                                      // context.read<CategoryCubit>().selectCategory(images[selectedCategory]!, colors[selectedCategory]!);
+                                      final Map<String, String> images = {
+                                        'Food': "assets/icons8-ice-cream-cone-64.png",
+                                        'Subscriptions': "assets/recurring-bill.png",
+                                        'Shopping': "assets/shopping-bag.png",
+                                        'Travel': "assets/car.png",
+                                      };
+                                      context.read<CategoryCubit>().selectCategory(images[selectedCategory]!, colors[selectedCategory]!);
                                       context.read<ExpenseCubit>().addExpense(
                                           descriptController.text.trim(),
                                           double.parse(displayedText),

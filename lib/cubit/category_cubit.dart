@@ -5,7 +5,7 @@ class CategoryCubit extends Cubit<List<Map<String, dynamic>>> {
   CategoryCubit() : super([]);
 
 
-  void selectCategory( IconData imagePath, Color color) {
+  void selectCategory( String imagePath, Color color) {
     final newTile ={
       'imagePath': imagePath,
       'color': color,
