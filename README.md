@@ -27,7 +27,7 @@ These instructions will help you set up and run the project on your local machin
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Tanay610/CipherSchools-Flutter-Assignment..git
+   git clone https://github.com/Tanay610/expense_tracker_app.git
    cd cipher_school_app
 
 ### Install dependencies:
