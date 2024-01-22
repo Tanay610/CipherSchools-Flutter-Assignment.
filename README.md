@@ -1,4 +1,4 @@
-# cipher_school_app
+# expense_tracker_app
 
 A simple Flutter Expense Tracker app with state management using Cubit and Firebase authentication for login and signup.
 
