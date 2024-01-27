@@ -1,8 +1,9 @@
-import 'package:cipher_school_app/cubit/category_cubit.dart';
-import 'package:cipher_school_app/cubit/expense_cubit.dart';
-import 'package:cipher_school_app/cubit/total_cubit.dart';
-import 'package:cipher_school_app/firebase_options.dart';
-import 'package:cipher_school_app/presentation/pages/splash_page.dart';
+
+import 'package:easy_expense/cubit/category_cubit.dart';
+import 'package:easy_expense/cubit/expense_cubit.dart';
+import 'package:easy_expense/cubit/total_cubit.dart';
+import 'package:easy_expense/firebase_options.dart';
+import 'package:easy_expense/presentation/pages/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

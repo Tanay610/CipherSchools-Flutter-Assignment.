@@ -1,36 +1,30 @@
 
 import 'package:easy_expense/data/firebase_authentication/fire_methods.dart';
-import 'package:easy_expense/presentation/pages/login_page.dart';
 import 'package:easy_expense/presentation/widgets/bottom_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _LoginPageState extends State<LoginPage> {
   bool _isLoading = false;
   bool _obscureText = true;
-  bool _isChecked = false;
-  final _formKey = GlobalKey<FormState>();
+  final formyyy = GlobalKey<FormState>();
     final AuthMethods _authMethods = AuthMethods();
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future<void> _handleSignUp() async {
-    String name = _nameController.text.trim();
+  Future<void> login()async{
     String email = _emailController.text.trim();
-    String password = _passwordController.text;
+    String pass = _passwordController.text.trim();
+    User? user = await _authMethods.login(email, pass);
 
-    User? user = await _authMethods.signUp(email, password, name);
-
-    if (user != null) {
-      // Navigate to the next screen, show a success message, etc.
+    if (user!=null) {
       setState(() {
       _isLoading = true;
     });
@@ -40,57 +34,32 @@ class _SignupPageState extends State<SignupPage> {
     setState(() {
       _isLoading = false;
     });
-      // Navigate to the next screen, show a success message, etc.
-      Navigator.pushReplacement(
+       Navigator.pushReplacement(
       context,
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => HomeBottomBar(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          return FadeTransition(
-            opacity: animation,
-            child: child,
-          );
+          const begin = Offset(1.0, 0.0);
+      const end = Offset.zero;
+      const curve = Curves.easeInOut;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      var offsetAnimation = animation.drive(tween);
+          return SlideTransition(position: offsetAnimation, child: child,);
         },
-      ),
+      )
     );
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-      backgroundColor: Colors.green,
-        content: Text('You are now successfully signed up!',
+      backgroundColor: Colors.blue,
+        content: Text('You are now successfully logged in. Enjoy!',
         style: TextStyle(
           color: Colors.white,
         ),
         ),
       ),
     );
-     
-      print('SignUp successful: ${user.uid}');
-    } else {
-      // Handle signup failure, show an error message, etc.
-      ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-      backgroundColor: Colors.red,
-        content: Text('Sign up failed. Please try again',
-        style: TextStyle(
-          color: Colors.white,
-        ),
-        ),
-      ),
-    );
-      
-      print('SignUp failed');
-    }
-  }
-
-  Future<void> _handleSignInWithGoogle() async {
-    User? user = await _authMethods.signInWithGoogle();
-
-    if (user != null) {
-      
-      print('SignIn with Google successful: ${user.uid}');
-    } else {
-      // Handle sign in with Google failure, show an error message, etc.
-      print('SignIn with Google failed');
     }
   }
 
@@ -100,39 +69,47 @@ class _SignupPageState extends State<SignupPage> {
       backgroundColor: Color(0xffFFFFFF),
       appBar: AppBar(
         title: Text(
-          "Sign Up",
-          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+          "Log In",
+          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 21),
         ),
         centerTitle: true,
       ),
       body: Form(
-        key: _formKey,
+        key: formyyy,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 30,
-              ),
+          SizedBox(height: 30,),
+          
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 18),
+              //   child: SizedBox(
+              //     height: 56,
+              //     width: MediaQuery.of(context).size.width * 0.9,
+              //     child: TextFormField(
+              //       controller: _nameController,
+              //       decoration: InputDecoration(
+              //           label: Text("Name"),
+              //           enabledBorder: OutlineInputBorder(
+              //             borderSide: BorderSide(color: Color(0xffF1F1FA)),
+              //           ),
+              //           focusedBorder: OutlineInputBorder(
+              //             borderSide: BorderSide(color: Color(0xffF1F1FA)),
+              //           ),
+              //           border: OutlineInputBorder(
+              //               borderRadius: BorderRadius.all(Radius.circular(16)))),
+              //     ),
+              //   ),
+              // ),
+          
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18),
-                child: SizedBox(
-                  height: 56,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  child: TextFormField(
-                    controller: _nameController,
-                    decoration: InputDecoration(
-                        label: Text("Name"),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xffF1F1FA)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xffF1F1FA)),
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(16)))),
-                  ),
-                ),
+                child: Text(
+                            "Welcome back, you have been missed.",
+                            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 19),
+                          ),
               ),
+          SizedBox(height: 30,),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 child: SizedBox(
@@ -190,52 +167,13 @@ class _SignupPageState extends State<SignupPage> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18),
-                child: Row(
-                  children: [
-                    Checkbox(
-                      value: _isChecked,
-                      checkColor: Colors.white,
-                      activeColor: Color(0xff7F3DFF),
-                      onChanged: (value) {
-                        setState(() {
-                          _isChecked = value!;
-                        });
-                      },
-                    ),
-                    Expanded(
-                      child: RichText(
-                        text: TextSpan(
-                          text: 'By signing up, you agree to the ',
-                          style: TextStyle(color: Colors.black),
-                          children: [
-                            TextSpan(
-                              text: 'Terms of Service and ',
-                              style: TextStyle(
-                                color:
-                                    Color(0xff7F3DFF), // Set the color to purple
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Privacy Policy',
-                              style: TextStyle(
-                                color:
-                                    Color(0xff7F3DFF), // Set the color to purple
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+            
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {
-                    _handleSignUp();
+                    login();
                   },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
@@ -247,7 +185,7 @@ class _SignupPageState extends State<SignupPage> {
                   child: _isLoading?CircularProgressIndicator(
                     color: Colors.white,
                   ):Text(
-                    'Sign Up',
+                    'Log in',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
@@ -265,7 +203,6 @@ class _SignupPageState extends State<SignupPage> {
               ),
               GestureDetector(
                 onTap:(){
-                  _handleSignInWithGoogle();
                 },
                 
                 child: Padding(
@@ -285,7 +222,7 @@ class _SignupPageState extends State<SignupPage> {
                           child: Image.asset("assets/flat-color-icons_google.png"),
                         ),
                         Text(
-                          "Sign Up with Google",
+                          "Sign up with Google",
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 18,
@@ -301,7 +238,7 @@ class _SignupPageState extends State<SignupPage> {
                 children: [
                   RichText(
                 text: TextSpan(
-                    text: "Already have an account?",
+                    text: "You don't have an account?",
                     style: TextStyle(
                       color: Color(0xff91919F),
                     ),
@@ -309,11 +246,9 @@ class _SignupPageState extends State<SignupPage> {
               ),
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return LoginPage();
-                  }));
+                 Navigator.pop(context);
                 },
-                child: Text("Login",
+                child: Text("SignUp",
                 style: TextStyle(
                   color: Color(0xff7F3DFF),
                 ),

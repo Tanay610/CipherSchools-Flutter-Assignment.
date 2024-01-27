@@ -1,4 +1,5 @@
-import 'package:cipher_school_app/presentation/pages/signup_page.dart';
+
+import 'package:easy_expense/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -18,15 +19,16 @@ class _WelcomePageState extends State<WelcomePage> {
           
           Positioned(
             bottom: 70,
-            left: 50,
+            left: 20,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Welcome to\n"+"  CIPHERX",
+                      "Welcome to\n"+"EasyExpenses",
                     style: TextStyle(
                       color: Color(0xffFFFFFF),
                       fontSize: 40,

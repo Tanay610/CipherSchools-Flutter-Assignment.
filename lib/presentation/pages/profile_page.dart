@@ -1,6 +1,7 @@
-import 'package:cipher_school_app/data/firebase_authentication/fire_methods.dart';
-import 'package:cipher_school_app/presentation/pages/signup_page.dart';
-import 'package:cipher_school_app/presentation/widgets/log_out.dart';
+
+import 'package:easy_expense/data/firebase_authentication/fire_methods.dart';
+import 'package:easy_expense/presentation/pages/login_page.dart';
+import 'package:easy_expense/presentation/widgets/log_out.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -165,7 +166,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       if (value == true) {
                         auth.logout();
                         Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) => SignupPage()),
+                          MaterialPageRoute(builder: (context) => LoginPage()),
                           (route) => false,
                         );
                       }

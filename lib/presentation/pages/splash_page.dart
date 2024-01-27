@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'package:cipher_school_app/presentation/pages/signup_page.dart';
-import 'package:cipher_school_app/presentation/pages/welcome_page.dart';
-import 'package:cipher_school_app/presentation/widgets/bottom_bar.dart';
+import 'package:easy_expense/presentation/pages/welcome_page.dart';
+import 'package:easy_expense/presentation/widgets/bottom_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +51,7 @@ class _SplashPageState extends State<SplashPage> {
               children: [
                 Image.asset("assets/Vector.png"),
                 Text(
-                  "CipherX",
+                  "EasyExpenses",
                   style: TextStyle(
                     color: Color(0xffFFFFFFF),
                     fontSize: 36,

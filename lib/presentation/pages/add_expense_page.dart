@@ -1,8 +1,7 @@
 
-import 'package:cipher_school_app/cubit/category_cubit.dart';
-import 'package:cipher_school_app/cubit/expense_cubit.dart';
-import 'package:cipher_school_app/cubit/total_cubit.dart';
-import 'package:cipher_school_app/models/expense_model.dart';
+import 'package:easy_expense/cubit/category_cubit.dart';
+import 'package:easy_expense/cubit/expense_cubit.dart';
+import 'package:easy_expense/cubit/total_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -42,219 +41,220 @@ class _AddExpensePageState extends State<AddExpensePage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-          child:SizedBox(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        padding: EdgeInsets.only(left: 22, bottom: 20),
-                        color: Color(0xff0077FF),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+      body: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.only(left: 22, bottom: 20),
+                    color: Color(0xff0077FF),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "How much?",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 18,
-                                      color: Color(0xffFCFCFC)),
-                                ),
-                              ],
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                _showTextFieldDialog(context);
-                              },
-                              child: Text(
-                                "₹ $displayedText",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 64,
-                                    color: Color(0xffFCFCFC)),
-                              ),
+                            Text(
+                              "How much?",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                  color: Color(0xffFCFCFC)),
                             ),
                           ],
                         ),
-                      ),
+                        GestureDetector(
+                          onTap: () {
+                            _showTextFieldDialog(context);
+                          },
+                          child: Text(
+                            "₹ $displayedText",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 64,
+                                color: Color(0xffFCFCFC)),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(32),
-                                topRight: Radius.circular(32))),
-                        child: Column(
-                          children: [
-                                Container(
-                                  margin: EdgeInsets.symmetric(
-                                      vertical: 18, horizontal: 10),
-                                  padding: EdgeInsets.all(3),
-                                  height: 54,
-                                  decoration: BoxDecoration(
-                                      border:
-                                          Border.all(color: Color(0xffF1F1FA)),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(16))),
-                                  child: DropdownButtonFormField(
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none),
-                                      hint: Text(
-                                        "Category",
-                                        style: TextStyle(
-                                            color: Color(0xff91919F),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(32),
+                            topRight: Radius.circular(32))),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(
+                                  vertical: 16,
+                                   horizontal: 10),
+                                padding: EdgeInsets.all(3),
+                                height: 54,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: Color(0xffF1F1FA)),
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(16))),
+                                child: DropdownButtonFormField(
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none),
+                                    hint: Text(
+                                      "Category",
+                                      style: TextStyle(
+                                          color: Color(0xff91919F),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    value: selectedCategory,
+                                    items: [
+                                      DropdownMenuItem(
+                                        value: "Food",
+                                        child: Text(
+                                          "Food",
+                                          style: TextStyle(
+                                              color: Color(0xff91919F),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
+                                        ),
                                       ),
-                                      value: selectedCategory,
-                                      items: [
-                                        DropdownMenuItem(
-                                          value: "Food",
-                                          child: Text(
-                                            "Food",
-                                            style: TextStyle(
-                                                color: Color(0xff91919F),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400),
-                                          ),
+                                      DropdownMenuItem(
+                                        value: "Subscriptions",
+                                        child: Text(
+                                          "Subscriptions",
+                                          style: TextStyle(
+                                              color: Color(0xff91919F),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
                                         ),
-                                        DropdownMenuItem(
-                                          value: "Subsriptions",
-                                          child: Text(
-                                            "Subscriptions",
-                                            style: TextStyle(
-                                                color: Color(0xff91919F),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Shopping",
-                                          child: Text(
-                                            "Shopping",
-                                            style: TextStyle(
-                                                color: Color(0xff91919F),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                        ),
-                                        DropdownMenuItem(
-                                          value: "Travel",
-                                          child: Text(
-                                            "Travel",
-                                            style: TextStyle(
-                                                color: Color(0xff91919F),
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                        ),
-                                      ],
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_outlined,
-                                        size: 32,
-                                        color: Color(0xff91919F),
                                       ),
-                                      onChanged: (v) {
-                                        setState(() {
-                                        selectedCategory = v!;
-                                        });
-                                      }),
-                                ),
-                              
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                  vertical: 12, horizontal: 7),
-                              height: 54,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffF1F1FA)),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(16))),
-                              child: TextFormField(
-                                controller: descriptController,
-                                decoration: InputDecoration(
-                                    hintText: "Description",
-                                    contentPadding: EdgeInsets.all(4),
-                                    hintStyle: TextStyle(
-                                        color: Color(0xff91919F),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400),
-                                    border: InputBorder.none),
+                                      DropdownMenuItem(
+                                        value: "Shopping",
+                                        child: Text(
+                                          "Shopping",
+                                          style: TextStyle(
+                                              color: Color(0xff91919F),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ),
+                                      DropdownMenuItem(
+                                        value: "Travel",
+                                        child: Text(
+                                          "Travel",
+                                          style: TextStyle(
+                                              color: Color(0xff91919F),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ),
+                                    ],
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_outlined,
+                                      size: 32,
+                                      color: Color(0xff91919F),
+                                    ),
+                                    onChanged: (v) {
+                                      setState(() {
+                                      selectedCategory = v!;
+                                      });
+                                    }),
                               ),
+                            
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: 16, horizontal: 7),
+                            height: 54,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Color(0xffF1F1FA)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16))),
+                            child: TextFormField(
+                              controller: descriptController,
+                              decoration: InputDecoration(
+                                  hintText: "Description",
+                                  contentPadding: EdgeInsets.all(4),
+                                  hintStyle: TextStyle(
+                                      color: Color(0xff91919F),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400),
+                                  border: InputBorder.none),
                             ),
-                            Container(
-                              margin: EdgeInsets.symmetric(
-                                  vertical: 18, horizontal: 10),
-                              padding: EdgeInsets.all(3),
-                              height: 54,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffF1F1FA)),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(16))),
-                              child: DropdownButtonFormField(
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
-                                  hint: Text(
-                                    "Payment Method",
-                                    style: TextStyle(
-                                        color: Color(0xff91919F),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400),
+                          ),
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: 16, horizontal: 10),
+                            padding: EdgeInsets.all(3),
+                            height: 54,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Color(0xffF1F1FA)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16))),
+                            child: DropdownButtonFormField(
+                                decoration:
+                                    InputDecoration(border: InputBorder.none),
+                                hint: Text(
+                                  "Payment Method",
+                                  style: TextStyle(
+                                      color: Color(0xff91919F),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                value: selectedWallet,
+                                items: [
+                                  DropdownMenuItem(
+                                    value: "Credit Card",
+                                    child: Text(
+                                      "Credit Card",
+                                      style: TextStyle(
+                                          color: Color(0xff91919F),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ),
-                                  value: selectedWallet,
-                                  items: [
-                                    DropdownMenuItem(
-                                      value: "Credit Card",
-                                      child: Text(
-                                        "Credit Card",
-                                        style: TextStyle(
-                                            color: Color(0xff91919F),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
+                                  DropdownMenuItem(
+                                    value: "Cash",
+                                    child: Text(
+                                      "Cash",
+                                      style: TextStyle(
+                                          color: Color(0xff91919F),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400),
                                     ),
-                                    DropdownMenuItem(
-                                      value: "Cash",
-                                      child: Text(
-                                        "Cash",
-                                        style: TextStyle(
-                                            color: Color(0xff91919F),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ),
-                                    DropdownMenuItem(
-                                      value: "Debit",
-                                      child: Text(
-                                        "Debit Card",
-                                        style: TextStyle(
-                                            color: Color(0xff91919F),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ),
-                                  ],
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_outlined,
-                                    size: 32,
-                                    color: Color(0xff91919F),
                                   ),
-                                  onChanged: (val) {
-                                    setState(() {
-                                      selectedWallet = val!;
-                                    });
-                                  }),
-                            ),
-                            SizedBox(
-                              height: 80,
-                            ),
-                            SizedBox(
+                                  DropdownMenuItem(
+                                    value: "Debit",
+                                    child: Text(
+                                      "Debit Card",
+                                      style: TextStyle(
+                                          color: Color(0xff91919F),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),
+                                ],
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_outlined,
+                                  size: 32,
+                                  color: Color(0xff91919F),
+                                ),
+                                onChanged: (val) {
+                                  setState(() {
+                                    selectedWallet = val!;
+                                  });
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 18),
+                            child: SizedBox(
                               height: 56,
                               width: MediaQuery.of(context).size.width * 0.9,
                               child: ElevatedButton(
@@ -271,14 +271,14 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                         'Shopping': Color(0xffFCEED4),
                                         'Travel': Color(0xffF1F1FA),
                                       };
-
+                            
                                       
-
+                            
                                       final Map<String, String> images = {
-                                        'Food': "assets/icons8-ice-cream-cone-64.png",
-                                      'Subscriptions': "assets/recurring-bill.png",
-                                        'Shopping': "assets/shopping-bag.png",
-                                        'Travel': "assets/car.png",
+                                        "Food": "assets/icons/iceCream.png",
+                                        "Subscriptions": "assets/icons/ott.png",
+                                        "Shopping": "assets/icons/shoppingBag.png",
+                                        "Travel": "assets/icons/beach.png",
                                       };
                                       context.read<CategoryCubit>().selectCategory(images[selectedCategory]!, colors[selectedCategory]!);
                                       context.read<ExpenseCubit>().addExpense(
@@ -287,10 +287,10 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                           selectedCategory.toString(),
                                           selectedWallet.toString(),
                                           );
-
+                            
                                       context.read<TotalCubit>().addExpense(
                                           double.parse(displayedText));
-
+                            
                                       Navigator.pop(context);
                                     },
                                   
@@ -302,18 +302,17 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                       fontSize: 18,
                                     ),
                                   )),
-                            )
-                          ],
-                        ),
+                            ),
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                ),
-              ),
-            
-        ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
       
-      extendBodyBehindAppBar: true,
     );
   }
 

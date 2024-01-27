@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:cipher_school_app/models/expense_model.dart';
+import 'package:easy_expense/models/expense_model.dart';
 import 'package:flutter/material.dart';
 
 part 'expense_state.dart';
