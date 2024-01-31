@@ -13,7 +13,7 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff7B61FF),
+      backgroundColor: const Color(0xff7B61FF),
       body: Stack(
         children: [
           
@@ -27,7 +27,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Welcome to\n"+"EasyExpenses",
                     style: TextStyle(
                       color: Color(0xffFFFFFF),
@@ -35,16 +35,16 @@ class _WelcomePageState extends State<WelcomePage> {
                       fontWeight: FontWeight.w400,
                     ),
                     ),
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return SignupPage();
+                          return const SignupPage();
                         }));
                       },
                       child: CircleAvatar(
                         radius: 35,
-                        backgroundColor: Color(0xffEDE1E1).withOpacity(0.75),
+                        backgroundColor: const Color(0xffEDE1E1).withOpacity(0.75),
                         child: Center(
                           child: Image.asset(
                             "assets/moa.png",
@@ -56,7 +56,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   ],
                 ),
                         
-                Text("The best way to track your expenses",
+                const Text("The best way to track your expenses",
                 style: TextStyle(
                       color: Color(0xffFFFFFF),
                       fontWeight: FontWeight.w400,

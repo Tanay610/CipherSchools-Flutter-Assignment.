@@ -20,10 +20,10 @@ class _IncomePageState extends State<IncomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff7B61FF),
+      backgroundColor: const Color(0xff7B61FF),
       appBar: AppBar(
-        backgroundColor: Color(0xff7B61FF),
-        title: Text(
+        backgroundColor: const Color(0xff7B61FF),
+        title: const Text(
           "Income",
           style: TextStyle(
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
@@ -33,7 +33,7 @@ class _IncomePageState extends State<IncomePage> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
             size: 24,
@@ -47,13 +47,13 @@ class _IncomePageState extends State<IncomePage> {
                 children: [
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.only(left: 22, bottom: 20),
-                      color: Color(0xff7B61FF),
+                      padding: const EdgeInsets.only(left: 22, bottom: 20),
+                      color: const Color(0xff7B61FF),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
+                          const Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
@@ -71,7 +71,7 @@ class _IncomePageState extends State<IncomePage> {
                           },
                            child: Text(
                               "₹ ${displayedText}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 64,
                                   color: Color(0xffFCFCFC)),
@@ -83,7 +83,7 @@ class _IncomePageState extends State<IncomePage> {
                   ),
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(32),
@@ -92,18 +92,18 @@ class _IncomePageState extends State<IncomePage> {
                         child: Column(
                           children: [
                             Container(
-                              margin: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.symmetric(
                                   vertical: 16, horizontal: 10),
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               height: 54,
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffF1F1FA)),
+                                  border: Border.all(color: const Color(0xffF1F1FA)),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(16))),
+                                      const BorderRadius.all(Radius.circular(16))),
                               child: DropdownButtonFormField(
                                   decoration:
-                                      InputDecoration(border: InputBorder.none),
-                                  hint: Text(
+                                      const InputDecoration(border: InputBorder.none),
+                                  hint: const Text(
                                     "Source",
                                     style: TextStyle(
                                         color: Color(0xff91919F),
@@ -112,7 +112,7 @@ class _IncomePageState extends State<IncomePage> {
                                   ),
                                   value: selectedCategory,
                                   items: [
-                                    DropdownMenuItem(
+                                    const DropdownMenuItem(
                                       value: "Salary",
                                       child: Text(
                                         "Salary",
@@ -122,7 +122,7 @@ class _IncomePageState extends State<IncomePage> {
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ),
-                                    DropdownMenuItem(
+                                    const DropdownMenuItem(
                                       value: "Freelance work",
                                       child: Text(
                                         "Freelance work",
@@ -132,7 +132,7 @@ class _IncomePageState extends State<IncomePage> {
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ),
-                                    DropdownMenuItem(
+                                    const DropdownMenuItem(
                                       value: "Gifts",
                                       child: Text(
                                         "Gifts",
@@ -142,7 +142,7 @@ class _IncomePageState extends State<IncomePage> {
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ),
-                                    DropdownMenuItem(
+                                    const DropdownMenuItem(
                                       value: "Borrowed",
                                       child: Text(
                                         "Borrowed",
@@ -153,7 +153,7 @@ class _IncomePageState extends State<IncomePage> {
                                       ),
                                     ),
                                   ],
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.keyboard_arrow_down_outlined,
                                     size: 32,
                                     color: Color(0xff91919F),
@@ -164,16 +164,16 @@ class _IncomePageState extends State<IncomePage> {
                                   }),
                             ),
                             Container(
-                              margin: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.symmetric(
                                   vertical: 16, horizontal: 7),
                               height: 54,
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffF1F1FA)),
+                                  border: Border.all(color: const Color(0xffF1F1FA)),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(16))),
+                                      const BorderRadius.all(Radius.circular(16))),
                               child: TextFormField(
                                 controller: descriptController,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                     hintText: "Description",
                                     contentPadding: EdgeInsets.all(4),
                                     hintStyle: TextStyle(
@@ -184,18 +184,18 @@ class _IncomePageState extends State<IncomePage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.symmetric(
+                              margin: const EdgeInsets.symmetric(
                                   vertical: 16, horizontal: 10),
-                              padding: EdgeInsets.all(3),
+                              padding: const EdgeInsets.all(3),
                               height: 54,
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Color(0xffF1F1FA)),
+                                  border: Border.all(color: const Color(0xffF1F1FA)),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(16))),
+                                      const BorderRadius.all(Radius.circular(16))),
                               child: DropdownButtonFormField(
                                   decoration:
-                                      InputDecoration(border: InputBorder.none),
-                                  hint: Text(
+                                      const InputDecoration(border: InputBorder.none),
+                                  hint: const Text(
                                     "Payment Method",
                                     style: TextStyle(
                                         color: Color(0xff91919F),
@@ -204,7 +204,7 @@ class _IncomePageState extends State<IncomePage> {
                                   ),
                                   value: selectedWallet,
                                   items: [
-                                    DropdownMenuItem(
+                                    const DropdownMenuItem(
                                       value: "Credit Card",
                                       child: Text(
                                         "Credit Card",
@@ -214,7 +214,7 @@ class _IncomePageState extends State<IncomePage> {
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ),
-                                    DropdownMenuItem(
+                                    const DropdownMenuItem(
                                       value: "Cash",
                                       child: Text(
                                         "Cash",
@@ -224,7 +224,7 @@ class _IncomePageState extends State<IncomePage> {
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ),
-                                    DropdownMenuItem(
+                                    const DropdownMenuItem(
                                       value: "Debit Card",
                                       child: Text(
                                         "Debit Card",
@@ -235,7 +235,7 @@ class _IncomePageState extends State<IncomePage> {
                                       ),
                                     ),
                                   ],
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.keyboard_arrow_down_outlined,
                                     size: 32,
                                     color: Color(0xff91919F),
@@ -251,8 +251,8 @@ class _IncomePageState extends State<IncomePage> {
                                 width: MediaQuery.of(context).size.width * 0.9,
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xff7F3DFF),
-                                        shape: RoundedRectangleBorder(
+                                        backgroundColor: const Color(0xff7F3DFF),
+                                        shape: const RoundedRectangleBorder(
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(16)))),
                                     onPressed: () {
@@ -260,7 +260,7 @@ class _IncomePageState extends State<IncomePage> {
                                       Navigator.pop(context);
                                       context.read<TotalCubit>().addIncome(double.parse(displayedText));
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "Continue",
                                       style: TextStyle(
                                         color: Colors.white,
@@ -287,14 +287,14 @@ class _IncomePageState extends State<IncomePage> {
         String newText = displayedText;
 
         return AlertDialog(
-          title: Text('Enter Income'),
+          title: const Text('Enter Income'),
           content: TextField(
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 20.0,
             ),
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Enter here...',
             ),
             onChanged: (value) {
@@ -306,7 +306,7 @@ class _IncomePageState extends State<IncomePage> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
@@ -317,7 +317,7 @@ class _IncomePageState extends State<IncomePage> {
                 }
                 Navigator.pop(context);
               },
-              child: Text('Save'),
+              child: const Text('Save'),
             ),
           ],
         );

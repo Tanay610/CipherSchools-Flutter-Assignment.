@@ -35,7 +35,7 @@ class _SignupPageState extends State<SignupPage> {
       _isLoading = true;
     });
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
     setState(() {
       _isLoading = false;
@@ -44,7 +44,7 @@ class _SignupPageState extends State<SignupPage> {
       Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => HomeBottomBar(),
+        pageBuilder: (context, animation, secondaryAnimation) => const HomeBottomBar(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(
             opacity: animation,
@@ -54,7 +54,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
       backgroundColor: Colors.green,
         content: Text('You are now successfully signed up!',
         style: TextStyle(
@@ -68,7 +68,7 @@ class _SignupPageState extends State<SignupPage> {
     } else {
       // Handle signup failure, show an error message, etc.
       ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
       backgroundColor: Colors.red,
         content: Text('Sign up failed. Please try again',
         style: TextStyle(
@@ -97,9 +97,9 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Sign Up",
           style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
         ),
@@ -110,7 +110,7 @@ class _SignupPageState extends State<SignupPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Padding(
@@ -120,7 +120,7 @@ class _SignupPageState extends State<SignupPage> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: TextFormField(
                     controller: _nameController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         label: Text("Name"),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xffF1F1FA)),
@@ -140,7 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: TextFormField(
                     controller: _emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         label: Text("Email"),
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xffF1F1FA)),
@@ -168,7 +168,7 @@ class _SignupPageState extends State<SignupPage> {
                             _obscureText
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: Color(0xff91919F),
+                            color: const Color(0xff91919F),
                           ),
                           onPressed: () {
                             setState(() {
@@ -176,14 +176,14 @@ class _SignupPageState extends State<SignupPage> {
                             });
                           },
                         ),
-                        label: Text("Password"),
-                        enabledBorder: OutlineInputBorder(
+                        label: const Text("Password"),
+                        enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xffF1F1FA)),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xffF1F1FA)),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(16)))),
                   ),
                 ),
@@ -195,7 +195,7 @@ class _SignupPageState extends State<SignupPage> {
                     Checkbox(
                       value: _isChecked,
                       checkColor: Colors.white,
-                      activeColor: Color(0xff7F3DFF),
+                      activeColor: const Color(0xff7F3DFF),
                       onChanged: (value) {
                         setState(() {
                           _isChecked = value!;
@@ -204,7 +204,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     Expanded(
                       child: RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           text: 'By signing up, you agree to the ',
                           style: TextStyle(color: Colors.black),
                           children: [
@@ -239,21 +239,21 @@ class _SignupPageState extends State<SignupPage> {
                   },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: Color(0xff7F3DFF), // Text color
+                      backgroundColor: const Color(0xff7F3DFF), // Text color
                       minimumSize:
                           Size(MediaQuery.of(context).size.width * 0.9, 56),
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(16)))),
-                  child: _isLoading?CircularProgressIndicator(
+                  child: _isLoading?const CircularProgressIndicator(
                     color: Colors.white,
-                  ):Text(
+                  ):const Text(
                     'Sign Up',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
                 child: Text(
                   "Or with",
                   style: TextStyle(
@@ -275,7 +275,7 @@ class _SignupPageState extends State<SignupPage> {
                     width: MediaQuery.of(context).size.width * 0.9,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Color(0xffF1F1FA)),
+                      border: Border.all(color: const Color(0xffF1F1FA)),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -284,7 +284,7 @@ class _SignupPageState extends State<SignupPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Image.asset("assets/flat-color-icons_google.png"),
                         ),
-                        Text(
+                        const Text(
                           "Sign Up with Google",
                           style: TextStyle(
                               color: Colors.black,
@@ -300,7 +300,7 @@ class _SignupPageState extends State<SignupPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RichText(
-                text: TextSpan(
+                text: const TextSpan(
                     text: "Already have an account?",
                     style: TextStyle(
                       color: Color(0xff91919F),
@@ -310,10 +310,10 @@ class _SignupPageState extends State<SignupPage> {
               GestureDetector(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return LoginPage();
+                    return const LoginPage();
                   }));
                 },
-                child: Text("Login",
+                child: const Text("Login",
                 style: TextStyle(
                   color: Color(0xff7F3DFF),
                 ),

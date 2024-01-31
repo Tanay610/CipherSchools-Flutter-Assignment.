@@ -33,7 +33,7 @@ class AuthMethods {
       return user;
     } catch (e) {
       
-      print('Error in sign up: $e');
+      // print('Error in sign up: $e');
       return null;
     }
   }
@@ -53,7 +53,7 @@ class AuthMethods {
 
       return user;
     } catch (e) {
-      print('Error in login: $e');
+      // print('Error in login: $e');
       return null;
     }
   }
@@ -85,7 +85,7 @@ class AuthMethods {
         return user;
       }
     } catch (e) {
-      print('Error in sign in with Google: $e');
+      // print('Error in sign in with Google: $e');
       return null;
     }
   }

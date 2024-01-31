@@ -21,10 +21,10 @@ class _AddExpensePageState extends State<AddExpensePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0077FF),
+      backgroundColor: const Color(0xff0077FF),
       appBar: AppBar(
-        backgroundColor: Color(0xff0077FF),
-        title: Text(
+        backgroundColor: const Color(0xff0077FF),
+        title: const Text(
           "Expense",
           style: TextStyle(
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
@@ -34,7 +34,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
           onTap: () {
             Navigator.pop(context);
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
             size: 24,
@@ -48,13 +48,13 @@ class _AddExpensePageState extends State<AddExpensePage> {
               children: [
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.only(left: 22, bottom: 20),
-                    color: Color(0xff0077FF),
+                    padding: const EdgeInsets.only(left: 22, bottom: 20),
+                    color: const Color(0xff0077FF),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
@@ -72,7 +72,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                           },
                           child: Text(
                             "₹ $displayedText",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 64,
                                 color: Color(0xffFCFCFC)),
@@ -84,8 +84,8 @@ class _AddExpensePageState extends State<AddExpensePage> {
                 ),
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(8),
+                    decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(32),
@@ -94,20 +94,20 @@ class _AddExpensePageState extends State<AddExpensePage> {
                       child: Column(
                         children: [
                               Container(
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                   vertical: 16,
                                    horizontal: 10),
-                                padding: EdgeInsets.all(3),
+                                padding: const EdgeInsets.all(3),
                                 height: 54,
                                 decoration: BoxDecoration(
                                     border:
-                                        Border.all(color: Color(0xffF1F1FA)),
-                                    borderRadius: BorderRadius.all(
+                                        Border.all(color: const Color(0xffF1F1FA)),
+                                    borderRadius: const BorderRadius.all(
                                         Radius.circular(16))),
                                 child: DropdownButtonFormField(
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                         border: InputBorder.none),
-                                    hint: Text(
+                                    hint: const Text(
                                       "Category",
                                       style: TextStyle(
                                           color: Color(0xff91919F),
@@ -116,7 +116,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                     ),
                                     value: selectedCategory,
                                     items: [
-                                      DropdownMenuItem(
+                                      const DropdownMenuItem(
                                         value: "Food",
                                         child: Text(
                                           "Food",
@@ -126,7 +126,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                               fontWeight: FontWeight.w400),
                                         ),
                                       ),
-                                      DropdownMenuItem(
+                                      const DropdownMenuItem(
                                         value: "Subscriptions",
                                         child: Text(
                                           "Subscriptions",
@@ -136,7 +136,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                               fontWeight: FontWeight.w400),
                                         ),
                                       ),
-                                      DropdownMenuItem(
+                                      const DropdownMenuItem(
                                         value: "Shopping",
                                         child: Text(
                                           "Shopping",
@@ -146,7 +146,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                               fontWeight: FontWeight.w400),
                                         ),
                                       ),
-                                      DropdownMenuItem(
+                                      const DropdownMenuItem(
                                         value: "Travel",
                                         child: Text(
                                           "Travel",
@@ -157,7 +157,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                         ),
                                       ),
                                     ],
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.keyboard_arrow_down_outlined,
                                       size: 32,
                                       color: Color(0xff91919F),
@@ -170,16 +170,16 @@ class _AddExpensePageState extends State<AddExpensePage> {
                               ),
                             
                           Container(
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 vertical: 16, horizontal: 7),
                             height: 54,
                             decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffF1F1FA)),
+                                border: Border.all(color: const Color(0xffF1F1FA)),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
+                                    const BorderRadius.all(Radius.circular(16))),
                             child: TextFormField(
                               controller: descriptController,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   hintText: "Description",
                                   contentPadding: EdgeInsets.all(4),
                                   hintStyle: TextStyle(
@@ -190,18 +190,18 @@ class _AddExpensePageState extends State<AddExpensePage> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 vertical: 16, horizontal: 10),
-                            padding: EdgeInsets.all(3),
+                            padding: const EdgeInsets.all(3),
                             height: 54,
                             decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffF1F1FA)),
+                                border: Border.all(color: const Color(0xffF1F1FA)),
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(16))),
+                                    const BorderRadius.all(Radius.circular(16))),
                             child: DropdownButtonFormField(
                                 decoration:
-                                    InputDecoration(border: InputBorder.none),
-                                hint: Text(
+                                    const InputDecoration(border: InputBorder.none),
+                                hint: const Text(
                                   "Payment Method",
                                   style: TextStyle(
                                       color: Color(0xff91919F),
@@ -210,7 +210,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                 ),
                                 value: selectedWallet,
                                 items: [
-                                  DropdownMenuItem(
+                                  const DropdownMenuItem(
                                     value: "Credit Card",
                                     child: Text(
                                       "Credit Card",
@@ -220,7 +220,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                           fontWeight: FontWeight.w400),
                                     ),
                                   ),
-                                  DropdownMenuItem(
+                                  const DropdownMenuItem(
                                     value: "Cash",
                                     child: Text(
                                       "Cash",
@@ -230,7 +230,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                           fontWeight: FontWeight.w400),
                                     ),
                                   ),
-                                  DropdownMenuItem(
+                                  const DropdownMenuItem(
                                     value: "Debit",
                                     child: Text(
                                       "Debit Card",
@@ -241,7 +241,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                     ),
                                   ),
                                 ],
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.keyboard_arrow_down_outlined,
                                   size: 32,
                                   color: Color(0xff91919F),
@@ -259,17 +259,17 @@ class _AddExpensePageState extends State<AddExpensePage> {
                               width: MediaQuery.of(context).size.width * 0.9,
                               child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      backgroundColor: Color(0xff7F3DFF),
-                                      shape: RoundedRectangleBorder(
+                                      backgroundColor: const Color(0xff7F3DFF),
+                                      shape: const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(16)))),
                                   onPressed: () {
                                       // Process data.
                                       final Map<String, Color> colors = {
                                         'Food': const Color(0xffFDD5D7),
-                                        'Subscriptions': Color(0xffEEE5FF),
-                                        'Shopping': Color(0xffFCEED4),
-                                        'Travel': Color(0xffF1F1FA),
+                                        'Subscriptions': const Color(0xffEEE5FF),
+                                        'Shopping': const Color(0xffFCEED4),
+                                        'Travel': const Color(0xffF1F1FA),
                                       };
                             
                                       
@@ -294,7 +294,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                                       Navigator.pop(context);
                                     },
                                   
-                                  child: Text(
+                                  child: const Text(
                                     "Continue",
                                     style: TextStyle(
                                       color: Colors.white,
@@ -323,14 +323,14 @@ class _AddExpensePageState extends State<AddExpensePage> {
         String newText = displayedText;
 
         return AlertDialog(
-          title: Text('Enter expense'),
+          title: const Text('Enter expense'),
           content: TextField(
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 20.0,
             ),
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Enter expense',
             ),
             onChanged: (value) {
@@ -342,7 +342,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
@@ -353,7 +353,7 @@ class _AddExpensePageState extends State<AddExpensePage> {
                 }
                 Navigator.pop(context);
               },
-              child: Text('Save'),
+              child: const Text('Save'),
             ),
           ],
         );

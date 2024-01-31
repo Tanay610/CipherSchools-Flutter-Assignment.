@@ -24,7 +24,7 @@ class _ExpensePageState extends State<ExpensePage> {
         children: [
           Container(
             height: 312,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(32),
                     bottomRight: Radius.circular(32)),
@@ -36,23 +36,23 @@ class _ExpensePageState extends State<ExpensePage> {
               builder: (context, amount) {
                 return Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(left: 25),
                           child: CircleAvatar(
                             radius: 20,
                             backgroundColor: Color.fromARGB(255, 178, 139, 255),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 30,
                         ),
-                        Row(
+                        const Row(
                           children: [
                             Icon(
                               Icons.keyboard_arrow_down_outlined,
@@ -67,7 +67,7 @@ class _ExpensePageState extends State<ExpensePage> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 30,
                         ),
                         GestureDetector(
@@ -77,7 +77,7 @@ class _ExpensePageState extends State<ExpensePage> {
                             //   return CategoryPage(categoryCubit: CategoryCubit(),);
                             // }));
                           },
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.only(right: 20),
                             child: Icon(
                               Icons.notifications,
@@ -88,14 +88,14 @@ class _ExpensePageState extends State<ExpensePage> {
                         )
                       ],
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.symmetric(vertical: 12),
                       child: Text("Account Balance"),
                     ),
                     Text(
                       '₹ ${amount.totalIncome - amount.totalExpense}',
                       style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 40),
+                          const TextStyle(fontWeight: FontWeight.w600, fontSize: 40),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 18),
@@ -103,20 +103,20 @@ class _ExpensePageState extends State<ExpensePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            margin: EdgeInsets.symmetric(horizontal: 12),
+                            margin: const EdgeInsets.symmetric(horizontal: 10),
                             height: 80,
-                            width: MediaQuery.of(context).size.width * 0.428,
-                            decoration: BoxDecoration(
+                            width: 180,
+                            decoration: const BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
                                 color: Colors.green),
                             child: Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.all(14),
+                                  margin: const EdgeInsets.all(14),
                                   height: 48,
                                   width: 48,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(20)),
                                     color: Colors.white,
@@ -130,7 +130,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
+                                      const Text(
                                         "Income",
                                         style: TextStyle(
                                             color: Colors.white,
@@ -142,7 +142,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                         child: Text(
                                           "₹${amount.totalIncome}",
                                           overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
                                               fontSize: 19),
@@ -155,20 +155,20 @@ class _ExpensePageState extends State<ExpensePage> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.symmetric(horizontal: 12),
+                            margin: const EdgeInsets.symmetric(horizontal: 10),
                             height: 80,
-                            width: MediaQuery.of(context).size.width * 0.428,
-                            decoration: BoxDecoration(
+                            width: 180,
+                            decoration: const BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20)),
                                 color: Colors.red),
                             child: Row(
                               children: [
                                 Container(
-                                  margin: EdgeInsets.all(14),
+                                  margin: const EdgeInsets.all(14),
                                   height: 48,
                                   width: 48,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(20)),
                                     color: Colors.white,
@@ -182,7 +182,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
+                                      const Text(
                                         "Expenses",
                                         style: TextStyle(
                                             color: Colors.white,
@@ -194,7 +194,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                         child: Text(
                                           "₹${amount.totalExpense}",
                                           overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w600,
                                               fontSize: 20),
@@ -234,8 +234,8 @@ class _ExpensePageState extends State<ExpensePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                     "Recent Transaction",
                     style: TextStyle(
@@ -249,11 +249,11 @@ class _ExpensePageState extends State<ExpensePage> {
                   child: Container(
                     width: 78,
                     height: 32,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xffEEE5FF),
                       borderRadius: BorderRadius.all(Radius.circular(16)),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         "See all",
                         style: TextStyle(
@@ -274,7 +274,7 @@ class _ExpensePageState extends State<ExpensePage> {
                   child: ListView.builder(
                       itemCount: state.length,
                       scrollDirection: Axis.vertical,
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
                         final list = state[index];
                         return Dismissible(
@@ -282,14 +282,14 @@ class _ExpensePageState extends State<ExpensePage> {
                             background: Container(
                               color: Colors.red,
                               alignment: Alignment.centerLeft,
-                              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              child: Icon(Icons.delete, color: Colors.white),
+                              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                              child: const Icon(Icons.delete, color: Colors.white),
                             ),
                             onDismissed: (direction) {
                               context.read<ExpenseCubit>().removeExpense(list);
                             },
                             child: ListTile(
-                              tileColor: Color(0xffFCFCFC),
+                              tileColor: const Color(0xffFCFCFC),
                               leading: BlocBuilder<CategoryCubit,List<Map<String, dynamic>>> (
                                 builder: (context, state) {
                                   final listcate = state[index];
@@ -297,7 +297,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                       height: 60,
                                       width: 60,
                                       decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius: const BorderRadius.all(
                                               Radius.circular(16)),
                                           color: listcate["color"]),
                                       child: Image.asset(listcate["imagePath"]));
@@ -305,7 +305,7 @@ class _ExpensePageState extends State<ExpensePage> {
                               ),
                               title: Text(
                                 list.category,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color(0xff292B2D),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16,
@@ -313,7 +313,7 @@ class _ExpensePageState extends State<ExpensePage> {
                               ),
                               subtitle: Text(
                                 list.description,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Color(0xff91919F),
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500),
@@ -322,7 +322,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                 children: [
                                   Text(
                                     "-₹${list.amount}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.red,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600),
@@ -332,7 +332,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                         const EdgeInsets.symmetric(vertical: 6),
                                     child: Text(
                                       "${list.time.hour}:${list.time.minute}${list.time.hour < 12 ? 'AM' : 'PM'}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Color(0xff91919F),
                                           fontSize: 13,
                                           fontWeight: FontWeight.w500),
@@ -360,9 +360,9 @@ class _ExpensePageState extends State<ExpensePage> {
         height: 34,
         width: 90,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(16)),
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
           color: selectedTabIndex == index
-              ? Color(0xffFCEED4)
+              ? const Color(0xffFCEED4)
               : Colors.transparent,
         ),
         child: Center(
@@ -370,8 +370,8 @@ class _ExpensePageState extends State<ExpensePage> {
             text,
             style: TextStyle(
                 color: selectedTabIndex == index
-                    ? Color(0xffFCAC12)
-                    : Color(0xff91919F),
+                    ? const Color(0xffFCAC12)
+                    : const Color(0xff91919F),
                 fontWeight: selectedTabIndex == index
                     ? FontWeight.w700
                     : FontWeight.w500,

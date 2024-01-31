@@ -16,24 +16,24 @@ class HomeBottomBar extends StatefulWidget {
 class _HomeBottomBarState extends State<HomeBottomBar> {
   int index = 0;
   final List<Widget> screens = [
-    ExpensePage(),
-    ProfilePage(),
+    const ExpensePage(),
+    const ProfilePage(),
   ];
 
   final PageStorageBucket pagestore = PageStorageBucket();
-  Widget currentPage = ExpensePage();
+  Widget currentPage = const ExpensePage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(bucket: pagestore, child: currentPage),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xff7F3DFF),
-        shape: RoundedRectangleBorder(
+        backgroundColor: const Color(0xff7F3DFF),
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(30))),
         onPressed: () {
           _showAddOptions(context);
         },
-        child: Icon(
+        child: const Icon(
           Icons.add_rounded,
           color: Colors.white,
           size: 40,
@@ -41,7 +41,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 15.0,
         child: SizedBox(
           height: 60,
@@ -55,7 +55,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentPage = ExpensePage();
+                        currentPage = const ExpensePage();
                         index = 0;
                       });
                     },
@@ -64,14 +64,14 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                       children: [
                         SvgPicture.asset("assets/home.svg",
                             color: index == 0
-                                ? Color(0xff7F3DFF)
-                                : Color(0xffC6C6C6)),
+                                ? const Color(0xff7F3DFF)
+                                : const Color(0xffC6C6C6)),
                         Text(
                           "Home",
                           style: TextStyle(
                               color: index == 0
-                                  ? Color(0xff7F3DFF)
-                                  : Color(0xffC6C6C6),
+                                  ? const Color(0xff7F3DFF)
+                                  : const Color(0xffC6C6C6),
                               fontSize: 10,
                               fontWeight: FontWeight.w500),
                         )
@@ -91,14 +91,14 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                         SvgPicture.asset("assets/transaction.svg",
                             height: 25,
                             color: index == 1
-                                ? Color(0xff7F3DFF)
-                                : Color(0xffC6C6C6)),
+                                ? const Color(0xff7F3DFF)
+                                : const Color(0xffC6C6C6)),
                         Text(
                           "Transaction",
                           style: TextStyle(
                               color: index == 1
-                                  ? Color(0xff7F3DFF)
-                                  : Color(0xffC6C6C6),
+                                  ? const Color(0xff7F3DFF)
+                                  : const Color(0xffC6C6C6),
                               fontSize: 9,
                               fontWeight: FontWeight.w500),
                         )
@@ -122,14 +122,14 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                       children: [
                         SvgPicture.asset("assets/pie chart.svg",
                             color: index == 2
-                                ? Color(0xff7F3DFF)
-                                : Color(0xffC6C6C6)),
+                                ? const Color(0xff7F3DFF)
+                                : const Color(0xffC6C6C6)),
                         Text(
                           "Budget",
                           style: TextStyle(
                               color: index == 2
-                                  ? Color(0xff7F3DFF)
-                                  : Color(0xffC6C6C6),
+                                  ? const Color(0xff7F3DFF)
+                                  : const Color(0xffC6C6C6),
                               fontSize: 10,
                               fontWeight: FontWeight.w500),
                         )
@@ -140,7 +140,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentPage = ProfilePage();
+                        currentPage = const ProfilePage();
                         index = 3;
                       });
                     },
@@ -148,14 +148,14 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                       children: [
                         SvgPicture.asset("assets/user.svg",
                             color: index == 3
-                                ? Color(0xff7F3DFF)
-                                : Color(0xffC6C6C6)),
+                                ? const Color(0xff7F3DFF)
+                                : const Color(0xffC6C6C6)),
                         Text(
                           "Profile",
                           style: TextStyle(
                               color: index == 3
-                                  ? Color(0xff7F3DFF)
-                                  : Color(0xffC6C6C6),
+                                  ? const Color(0xff7F3DFF)
+                                  : const Color(0xffC6C6C6),
                               fontSize: 10,
                               fontWeight: FontWeight.w500),
                         )
@@ -176,16 +176,16 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.arrow_upward,
                   color: Colors.green,
                 ),
-                title: Text(
+                title: const Text(
                   'Add Income',
                   style: TextStyle(
                       color: Color(0xff7F3DFF),
@@ -196,16 +196,16 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                   
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return IncomePage();
+                    return const IncomePage();
                   }));
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.arrow_downward,
                   color: Colors.red,
                 ),
-                title: Text(
+                title: const Text(
                   'Add Expense',
                   style: TextStyle(
                       color: Color(0xff7F3DFF),
@@ -215,7 +215,7 @@ class _HomeBottomBarState extends State<HomeBottomBar> {
                 onTap: () {
                   Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AddExpensePage();
+                    return const AddExpensePage();
                   }));
 
                   

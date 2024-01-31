@@ -23,5 +23,6 @@ class LogoutDialog extends StatelessWidget {
         ),
       ],
     );
+    
   }
 }

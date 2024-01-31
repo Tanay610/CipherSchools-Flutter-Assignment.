@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
       _isLoading = true;
     });
 
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
 
     setState(() {
       _isLoading = false;
@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
        Navigator.pushReplacement(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => HomeBottomBar(),
+        pageBuilder: (context, animation, secondaryAnimation) => const HomeBottomBar(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
       const end = Offset.zero;
@@ -60,15 +60,26 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+    }else{
+      ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+      backgroundColor: Colors.red,
+        content: Text('Log in failed. Please try again',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+        ),
+      ),
+    );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Log In",
           style: TextStyle(fontWeight: FontWeight.w600, fontSize: 21),
         ),
@@ -79,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-          SizedBox(height: 30,),
+          const SizedBox(height: 30,),
           
               // Padding(
               //   padding: const EdgeInsets.symmetric(vertical: 18),
@@ -102,14 +113,14 @@ class _LoginPageState extends State<LoginPage> {
               //   ),
               // ),
           
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 18),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 18),
                 child: Text(
                             "Welcome back, you have been missed.",
                             style: TextStyle(fontWeight: FontWeight.w400, fontSize: 19),
                           ),
               ),
-          SizedBox(height: 30,),
+          const SizedBox(height: 30,),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 child: SizedBox(
@@ -117,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: TextFormField(
                     controller: _emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         label: Text("Email"),
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xffF1F1FA)),
@@ -145,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                             _obscureText
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: Color(0xff91919F),
+                            color: const Color(0xff91919F),
                           ),
                           onPressed: () {
                             setState(() {
@@ -153,20 +164,20 @@ class _LoginPageState extends State<LoginPage> {
                             });
                           },
                         ),
-                        label: Text("Password"),
-                        enabledBorder: OutlineInputBorder(
+                        label: const Text("Password"),
+                        enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xffF1F1FA)),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xffF1F1FA)),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(16)))),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 18),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 18),
             
               ),
               Padding(
@@ -177,21 +188,21 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: Color(0xff7F3DFF), // Text color
+                      backgroundColor: const Color(0xff7F3DFF), // Text color
                       minimumSize:
                           Size(MediaQuery.of(context).size.width * 0.9, 56),
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(16)))),
-                  child: _isLoading?CircularProgressIndicator(
+                  child: _isLoading?const CircularProgressIndicator(
                     color: Colors.white,
-                  ):Text(
+                  ):const Text(
                     'Log in',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
                 child: Text(
                   "Or with",
                   style: TextStyle(
@@ -212,7 +223,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: MediaQuery.of(context).size.width * 0.9,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: Color(0xffF1F1FA)),
+                      border: Border.all(color: const Color(0xffF1F1FA)),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -221,7 +232,7 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Image.asset("assets/flat-color-icons_google.png"),
                         ),
-                        Text(
+                        const Text(
                           "Sign up with Google",
                           style: TextStyle(
                               color: Colors.black,
@@ -237,7 +248,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   RichText(
-                text: TextSpan(
+                text: const TextSpan(
                     text: "You don't have an account?",
                     style: TextStyle(
                       color: Color(0xff91919F),
@@ -248,7 +259,7 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: (){
                  Navigator.pop(context);
                 },
-                child: Text("SignUp",
+                child: const Text("SignUp",
                 style: TextStyle(
                   color: Color(0xff7F3DFF),
                 ),

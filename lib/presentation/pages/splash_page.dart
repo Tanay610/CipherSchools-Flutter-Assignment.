@@ -23,16 +23,16 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> checkUserLoggedIn() async {
     final user = _auth.currentUser;
     if (user != null) {
-      Timer(Duration(seconds: 4), () {
+      Timer(const Duration(seconds: 4), () {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) {
-          return HomeBottomBar();
+          return const HomeBottomBar();
         }));
       });
     } else {
-      Timer(Duration(seconds: 4), () {
+      Timer(const Duration(seconds: 4), () {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return WelcomePage();
+        return const WelcomePage();
       }));
        });
       
@@ -42,7 +42,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff7B61FF),
+      backgroundColor: const Color(0xff7B61FF),
       body: Stack(
         children: [
           Center(
@@ -50,7 +50,7 @@ class _SplashPageState extends State<SplashPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/Vector.png"),
-                Text(
+                const Text(
                   "EasyExpenses",
                   style: TextStyle(
                     color: Color(0xffFFFFFFF),
