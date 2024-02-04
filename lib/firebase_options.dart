@@ -3,6 +3,9 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+    import 'package:dotenv/dotenv.dart';
+
+    var env = DotEnv();
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -49,20 +52,22 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCpWGr1o0Z21zHDkg6AS3yktg0gxiBVWpc',
-    appId: '1:326311576077:android:c274e761726ec03c288b44',
+  
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: env['FIREBASE_API_KEY']!,
+    appId: env['FIREBASE_APP_ID']!,
     messagingSenderId: '326311576077',
     projectId: 'expensetrack-c170d',
     storageBucket: 'expensetrack-c170d.appspot.com',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBXfrDxytBOjstuJDmBx8mTxKhuMVz6kCo',
-    appId: '1:326311576077:ios:8bce6403cb03c878288b44',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: env['Firebase_ios_api_key']!,
+    appId: env['Firebase_ios_api_ID']!,
     messagingSenderId: '326311576077',
     projectId: 'expensetrack-c170d',
     storageBucket: 'expensetrack-c170d.appspot.com',
     iosBundleId: 'com.example.cipherSchoolApp',
   );
+
 }
